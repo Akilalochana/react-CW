@@ -1,0 +1,117 @@
+{
+    "properties": [
+      {
+        "id": "prop1",
+        "type": "House",
+        "bedrooms": 3,
+        "price": 750000,
+        "tenure": "Freehold",
+        "description": "Attractive three-bedroom semi-detached family home situated within 0.5 miles of Petts Wood station with fast trains to London and within easy walking distance of local shops, schools, bus routes, and National Trust woodland.",
+        "location": "Petts Wood Road, Petts Wood, Orpington BR5",
+        "picture": "images/prop1pic1small.jpg",
+        "url": "properties/prop1.html",
+        "added": {
+          "month": "October",
+          "day": 12,
+          "year": 2022
+        }
+      },
+      {
+        "id": "prop2",
+        "type": "Flat",
+        "bedrooms": 2,
+        "price": 399995,
+        "tenure": "Freehold",
+        "description": "Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat.",
+        "location": "Crofton Road, Orpington BR6",
+        "picture": "images/prop2pic1small.jpg",
+        "url": "properties/prop2.html",
+        "added": {
+          "month": "September",
+          "day": 14,
+          "year": 2022
+        }
+      },
+      {
+        "id": "prop3",
+        "type": "House",
+        "bedrooms": 5,
+        "price": 1200000,
+        "tenure": "Freehold",
+        "description": "A stunning five-bedroom detached house with a spacious garden and modern amenities, located in the sought-after area of Bromley.",
+        "location": "Shortlands, Bromley BR2",
+        "picture": "images/prop3pic1small.jpg",
+        "url": "properties/prop3.html",
+        "added": {
+          "month": "July",
+          "day": 3,
+          "year": 2023
+        }
+      },
+      {
+        "id": "prop4",
+        "type": "Flat",
+        "bedrooms": 1,
+        "price": 250000,
+        "tenure": "Leasehold",
+        "description": "A bright and airy one-bedroom flat situated on the second floor of a modern development with excellent transport links.",
+        "location": "Greenwich, London SE10",
+        "picture": "images/prop4pic1small.jpg",
+        "url": "properties/prop4.html",
+        "added": {
+          "month": "May",
+          "day": 18,
+          "year": 2023
+        }
+      },
+      {
+        "id": "prop5",
+        "type": "House",
+        "bedrooms": 4,
+        "price": 850000,
+        "tenure": "Freehold",
+        "description": "A charming four-bedroom terraced house with a private garden, located in a quiet residential area close to local schools.",
+        "location": "Chislehurst, Kent BR7",
+        "picture": "images/prop5pic1small.jpg",
+        "url": "properties/prop5.html",
+        "added": {
+          "month": "June",
+          "day": 9,
+          "year": 2023
+        }
+      },
+      {
+        "id": "prop6",
+        "type": "Flat",
+        "bedrooms": 3,
+        "price": 600000,
+        "tenure": "Leasehold",
+        "description": "A stylish three-bedroom apartment with a balcony offering stunning city views, located in a high-rise building in Canary Wharf.",
+        "location": "Canary Wharf, London E14",
+        "picture": "images/prop6pic1small.jpg",
+        "url": "properties/prop6.html",
+        "added": {
+          "month": "August",
+          "day": 22,
+          "year": 2023
+        }
+      },
+      {
+        "id": "prop7",
+        "type": "House",
+        "bedrooms": 6,
+        "price": 2000000,
+        "tenure": "Freehold",
+        "description": "An exquisite six-bedroom mansion with a private swimming pool, gym, and landscaped garden, perfect for luxury living.",
+        "location": "Chelsea, London SW3",
+        "picture": "images/prop7pic1small.jpg",
+        "url": "properties/prop7.html",
+        "added": {
+          "month": "March",
+          "day": 5,
+          "year": 2023
+        }
+      }
+    ]
+  }
+  
