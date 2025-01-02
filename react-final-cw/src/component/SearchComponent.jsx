@@ -1,82 +1,154 @@
 import React, { useState, useEffect } from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import './SearchComponent.css';
-import { propTypes } from 'react-bootstrap/esm/Image';
-
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import PropertyCard from './PropertyCard';
+import FavoritesSection from './FavoritesSection';
+import "./SearchComponent.css";
 
 function SearchComponent() {
   const [properties, setProperties] = useState([]);
   const [filteredProperties, setFilteredProperties] = useState([]);
-  const [selectedType, setSelectedType] = useState('Any');
+  const [selectedType, setSelectedType] = useState("Any");
+  const [selectedMinPrice, setSelectedMinPrice] = useState("");
+  const [selectedMaxPrice, setSelectedMaxPrice] = useState("");
+  const [selectedMinBedroom, setSelectedMinBedroom] = useState("");
+  const [selectedMaxBedroom, setSelectedMaxBedroom] = useState("");
+  const [selectedAfterDate, setSelectedAfterDate] = useState("");
+  const [selectedBeforeDate, setSelectedBeforeDate] = useState("");
+  const [selectedPostcode, setSelectedPostcode] = useState("");
 
-  const [selectedMinPrice, setSelectedMinPrice] = useState('');
-  const [selectedMaxPrice, setSelectedMaxPrice] = useState('');
 
-  const [selectedMinBedroom, setSelectedMinBedroom] = useState('');
-  const [selectedMaxBedroom, setSelectedMaxBedroom] = useState('');
+ 
+  const [favorites, setFavorites] = useState([]);
 
 
 
+
+  const monthMap = {
+    January: 1,
+    February: 2,
+    March: 3,
+    April: 4,
+    May: 5,
+    June: 6,
+    July: 7,
+    August: 8,
+    September: 9,
+    October: 10,
+    November: 11,
+    December: 12,
+  };
+  
+
+    // Load properties from JSON
+    useEffect(() => {
+      fetch("/properties.json")
+        .then((response) => response.json())
+        .then((data) => {
+          setProperties(data.properties);
+          setFilteredProperties(data.properties);
+        })
+        .catch((error) => console.error("Error fetching properties:", error));
+    }, []);
+
+      // Load favorites from localStorage
+    useEffect(() => {
+      const savedFavorites = localStorage.getItem('propertyFavorites');
+      if (savedFavorites) {
+        setFavorites(JSON.parse(savedFavorites));
+      }
+    }, []);
+
+    // Save favorites to localStorage
   useEffect(() => {
-    fetch('/properties.json')
-      .then((response) => response.json())
-      .then((data) => {
-        setProperties(data.properties);
-        setFilteredProperties(data.properties);
-      })
-      .catch((error) => console.error('Error fetching properties:', error));
-  }, []);
+    localStorage.setItem('propertyFavorites', JSON.stringify(favorites));
+  }, [favorites]);
 
+  const handleToggleFavorite = (property) => {
+    setFavorites(prevFavorites => {
+      const isFavorite = prevFavorites.some(fav => fav.id === property.id);
+      if (isFavorite) {
+        return prevFavorites.filter(fav => fav.id !== property.id);
+      } else {
+        return [...prevFavorites, property];
+      }
+    });
+  };
+
+  const handleClearFavorites = () => {
+    setFavorites([]);
+  };
 
 
 
   const handleSearch = () => {
-    // Check if the minimum price is greater than the maximum price
+    // Validation for min price > max price
     if (
       selectedMinPrice &&
       selectedMaxPrice &&
       parseFloat(selectedMinPrice) > parseFloat(selectedMaxPrice)
     ) {
-      alert("Minimum price cannot be greater than maximum price !");
-      return; // Exit the function if the validation fails
+      alert("Minimum price cannot be greater than maximum price!");
+      return;
     }
-    
 
+    // Validation for min bedroom > max bedroom
     if (
       selectedMinBedroom &&
       selectedMaxBedroom &&
       parseFloat(selectedMinBedroom) > parseFloat(selectedMaxBedroom)
-    ){
-      alert("Minimum bedrooms cannot be greter than maximum bedrooms !")
+    ) {
+      alert("Minimum bedrooms cannot be greater than maximum bedrooms!");
+      return;
     }
-  
-    // Perform filtering if the validation passes
+
+    // Perform filtering
     const filtered = properties.filter((property) => {
-      const matchesType = selectedType === "Any" || property.type === selectedType;
+      const matchesType =
+        selectedType === "Any" || property.type === selectedType;
+
       const matchesPrice =
         (!selectedMinPrice || property.price >= parseFloat(selectedMinPrice)) &&
         (!selectedMaxPrice || property.price <= parseFloat(selectedMaxPrice));
 
-      const matchesBEdroom = 
-        (!selectedMinBedroom || property.bedrooms >= parseFloat(selectedMinBedroom))&&
-        (!selectedMaxBedroom || property.bedrooms <= parseFloat(selectedMaxBedroom)); 
+      const matchesBedroom =
+        (!selectedMinBedroom ||
+          property.bedrooms >= parseFloat(selectedMinBedroom)) &&
+        (!selectedMaxBedroom ||
+          property.bedrooms <= parseFloat(selectedMaxBedroom));
 
-      return matchesType && matchesPrice && matchesBEdroom;
+      const propertyDate = new Date(
+        property.added.year,
+        monthMap[property.added.month] - 1, // Convert month name to numeric
+        property.added.day
+      );
+
+      const matchesDate =
+        (!selectedAfterDate || propertyDate >= new Date(selectedAfterDate)) &&
+        (!selectedBeforeDate || propertyDate <= new Date(selectedBeforeDate));
+
+      const extractedPostcode = property.location.match(/\b[A-Z]{1,2}[0-9]{1,2}\b/); // Extract postcode area (e.g., "BR5", "NW1")
+      const matchesPostcode =
+        !selectedPostcode ||
+        (extractedPostcode && extractedPostcode[0] === selectedPostcode);
+
+      return matchesType && matchesPrice && matchesBedroom && matchesDate && matchesPostcode;
     });
-  
+
     setFilteredProperties(filtered);
   };
-  
-
 
   return (
+
+    <DndProvider backend={HTML5Backend}>
     <div>
       <div className="allSearch">
+      <Form.Label>Select type</Form.Label>
         <Form.Select
           aria-label="Select property type"
-          style={{ width: "200px", height:"40px" }}
+          style={{ width: "420px", height: "40px", marginBottom:"20px" }}
           onChange={(e) => setSelectedType(e.target.value)}
           value={selectedType}
         >
@@ -85,8 +157,9 @@ function SearchComponent() {
           <option value="Flat">Flat</option>
         </Form.Select>
 
-        <Form.Group className='maxMinPrice'>
-          <Form.Label>Enter price range</Form.Label>
+
+        <Form.Label>Enter price range</Form.Label>
+        <Form.Group className="maxMinPrice">
           <Form.Control
             type="number"
             placeholder="min price"
@@ -104,8 +177,9 @@ function SearchComponent() {
         </Form.Group>
 
 
-        <Form.Group className='maxMinBedrooms'>
-          <Form.Label>Enter price range</Form.Label>
+
+        <Form.Label>Enter bedroom range</Form.Label>
+        <Form.Group className="maxMinBedrooms" >
           <Form.Control
             type="number"
             placeholder="min bedroom"
@@ -122,32 +196,66 @@ function SearchComponent() {
           />
         </Form.Group>
 
+        <Form.Group className="date">
+          <Form.Label>Date added</Form.Label>
+            <div className="dateLabel">
+              <Form.Label>after</Form.Label>
+              <Form.Control
+                type="date"
+                placeholder="after"
+                onChange={(e) => setSelectedAfterDate(e.target.value)}
+                value={selectedAfterDate}
+                style={{ width: "200px" }}
+              />
+            </div>
+            <div className="dateLabel">
+             <Form.Label>before</Form.Label>
+              <Form.Control
+                type="date"
+                placeholder="before"
+                onChange={(e) => setSelectedBeforeDate(e.target.value)}
+                value={selectedBeforeDate}
+                style={{ width: "200px" }}
+              />
+            </div>
 
-    
-        <Button onClick={handleSearch} variant="outline-success">Search</Button>
-          
+        </Form.Group>
+
+        <Form.Group className="postcode">
+          <Form.Label>Postcode Area</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="e.g. BR1, NW1"
+            onChange={(e) => setSelectedPostcode(e.target.value.toUpperCase())}
+            value={selectedPostcode}
+            style={{ width: "420px", marginBottom:"20px" }}
+          />
+        </Form.Group>
+
+        <Button onClick={handleSearch} variant="outline-success" style={{width:"150px", marginLeft:"400px"}}>
+          Search
+        </Button>
       </div>
 
-      <div className="imageCardDiv">
-        {filteredProperties.map((property) => (
-          <Card key={property.id} className="imageCard">
-            <Card.Img
-              variant="top"
-              src={property.picture}
-              alt={property.location}
-              style={{ height: "180px", objectFit: "cover" }}
+
+      <FavoritesSection 
+          favorites={favorites}
+          onRemoveFavorite={handleToggleFavorite}
+          onClearFavorites={handleClearFavorites}
+        />
+
+<div className="imageCardDiv">
+          {filteredProperties.map((property) => (
+            <PropertyCard
+              key={property.id}
+              property={property}
+              onToggleFavorite={handleToggleFavorite}
+              isFavorite={favorites.some(fav => fav.id === property.id)}
             />
-            <Card.Body>
-              <Card.Title>{property.type}</Card.Title>
-              <Card.Text>{property.location}</Card.Text>
-              <Card.Text>{property.bedrooms}</Card.Text>
-              <Card.Text>£{property.price.toLocaleString()}</Card.Text>
-              <Button variant="outline-success">View Details</Button>
-            </Card.Body>
-          </Card>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </DndProvider>
   );
 }
 

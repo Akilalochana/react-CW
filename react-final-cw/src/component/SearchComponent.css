@@ -17,9 +17,9 @@
 }
 
 .allSearch{
-    display: flex;
-    width: 1000px;
-    height: 300px;
+    
+    width: 650px;
+    height: 600px;
     /* background-color: rgb(82, 74, 74); */
     margin: 30px 220px;
     padding: 30px 40px;
@@ -27,3 +27,31 @@
     box-shadow: 10px;
     box-shadow: 1px 10px 20px rgba(0, 0, 0, 0.2); /* Example: subtle gray border */
 }
+
+.maxMinPrice{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.maxMinBedrooms{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.dateLabel{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.favorites-section {
+    margin: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .imageCardDiv {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }

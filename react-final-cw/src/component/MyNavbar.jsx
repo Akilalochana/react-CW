@@ -19,7 +19,7 @@ function MyNavbar() {
           </Navbar.Brand>
           <Nav className="ms-auto"> 
             <Nav.Link href="#home" style={{ color: '#000' }}>Home</Nav.Link>
-            <Nav.Link href="#" className="ms-2" style={{ color: '#000' }}>Configuration</Nav.Link>
+            <Nav.Link href="#" className="ms-2" style={{ color: '#000' }}>About Us</Nav.Link>
             <Button variant="outline-success">Favourite</Button>
           </Nav>
         </Container>
