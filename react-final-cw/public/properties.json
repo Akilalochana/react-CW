@@ -14,7 +14,16 @@
           "month": "October",
           "day": 12,
           "year": 2022
-        }
+        },
+        "floorPlan":"floorPlan/floorImg1.png",
+        "imageGallery": [
+          "images/prop1pic1small.jpg",
+          "gallaryImages/prop1pic2small.jpg",
+          "gallaryImages/prop1pic3small.jpg",
+          "gallaryImages/prop1pic4small.jpg",
+          "gallaryImages/prop1pic5small.jpg",
+          "gallaryImages/prop1pic6small.jpg"
+        ]
       },
       {
         "id": "prop2",
@@ -30,7 +39,16 @@
           "month": "September",
           "day": 14,
           "year": 2022
-        }
+        },
+        "floorPlan":"floorPlan/floorImg2.jpg",
+        "imageGallery": [
+          "images/prop2pic1small.jpg",
+          "gallaryImages/prop2pic2small.jpg",
+          "gallaryImages/prop2pic3small.jpg",
+          "gallaryImages/prop2pic4small.jpg",
+          "gallaryImages/prop2pic5small.jpg",
+          "gallaryImages/prop2pic6small.jpg"
+        ]
       },
       {
         "id": "prop3",
@@ -46,7 +64,16 @@
           "month": "July",
           "day": 3,
           "year": 2023
-        }
+        },
+        "floorPlan":"floorPlan/floorImg3.jpg",
+        "imageGallery": [
+          "images/prop3pic1small.jpg",
+          "gallaryImages/prop3pic2small.jpg",
+          "gallaryImages/prop3pic3small.jpg",
+          "gallaryImages/prop3pic4small.jpg",
+          "gallaryImages/prop3pic5small.jpg",
+          "gallaryImages/prop3pic6small.jpg"
+        ]
       },
       {
         "id": "prop4",
@@ -62,7 +89,16 @@
           "month": "May",
           "day": 18,
           "year": 2023
-        }
+        },
+        "floorPlan":"floorPlan/floorImg4.jpg",
+        "imageGallery": [
+          "images/prop4pic1small.jpg",
+          "gallaryImages/prop4pic2small.jpg",
+          "gallaryImages/prop4pic3small.jpg",
+          "gallaryImages/prop4pic4small.jpg",
+          "gallaryImages/prop4pic5small.jpg",
+          "gallaryImages/prop4pic6small.jpg"
+        ]
         
       },
       {
@@ -79,7 +115,16 @@
           "month": "June",
           "day": 9,
           "year": 2023
-        }
+        },
+        "floorPlan":"floorPlan/floorImg5.jpg",
+        "imageGallery": [
+          "images/prop5pic1small.jpg",
+          "gallaryImages/prop5pic2small.jpg",
+          "gallaryImages/prop5pic3small.jpg",
+          "gallaryImages/prop5pic4small.jpg",
+          "gallaryImages/prop5pic5small.jpg",
+          "gallaryImages/prop5pic6small.jpg"
+        ]
       },
       {
         "id": "prop6",
@@ -95,7 +140,16 @@
           "month": "August",
           "day": 22,
           "year": 2023
-        }
+        },
+        "floorPlan":"floorPlan/floorImg6.jpg",
+        "imageGallery": [
+          "images/prop6pic1small.jpg",
+          "gallaryImages/prop6pic2small.jpg",
+          "gallaryImages/prop6pic3small.jpg",
+          "gallaryImages/prop6pic4small.jpg",
+          "gallaryImages/prop6pic5small.jpg",
+          "gallaryImages/prop6pic6small.jpg"
+        ]
       },
       {
         "id": "prop7",
@@ -111,7 +165,16 @@
           "month": "March",
           "day": 5,
           "year": 2023
-        }
+        },
+        "floorPlan":"floorPlan/floorImg7.jpg",
+        "imageGallery": [
+          "images/prop7pic1small.jpg",
+          "gallaryImages/prop7pic2small.jpg",
+          "gallaryImages/prop7pic3small.jpg",
+          "gallaryImages/prop7pic4small.jpg",
+          "gallaryImages/prop7pic5small.jpg",
+          "gallaryImages/prop7pic6small.jpg"
+        ]
       }
     ]
   }
