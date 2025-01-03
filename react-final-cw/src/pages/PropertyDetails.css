@@ -41,6 +41,34 @@
     color: #27ae60;
     font-weight: bold;
   }
+
+  .floor-plan-image {
+    
+    height: auto !important;
+    object-fit: cover !important;
+  }
+
+  .back{
+    font-size: 46px;
+    cursor: pointer;
+    margin-left: 40px;
+    margin-top: 10px;
+    position: absolute;
+  }
+
+
+  @media (max-width:400px){
+    .back{
+      font-size: 42px;
+      cursor: pointer;
+      margin-left: 290px;
+      margin-top: 28px;
+      position: absolute;
+    }
+  }
+  
+
+  
   
   @media (max-width: 768px) {
     .property-details {
@@ -54,4 +82,8 @@
     .property-details h2 {
       font-size: 1.5rem;
     }
+
+
   }
+
+  

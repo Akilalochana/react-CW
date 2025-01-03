@@ -238,7 +238,7 @@ function SearchComponent() {
           />
         </Form.Group>
 
-        <Button onClick={handleSearch} variant="outline-success" style={{width:"150px", marginLeft:"600px", marginTop:"-100px"}}>
+        <Button onClick={handleSearch} variant="success" style={{width:"150px", marginLeft:"600px", marginTop:"-100px"}}>
           Search
         </Button>
       </div>

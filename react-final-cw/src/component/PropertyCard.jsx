@@ -27,13 +27,16 @@ const PropertyCard = ({ property, onToggleFavorite, isFavorite }) => {
         />
         <Card.Body>
           <Card.Title>{property.type}</Card.Title>
-          <Card.Text>{property.description}</Card.Text>
+          {property.description.split(' ').slice(0, 10).join(' ')}...
           {/* <Card.Text>{property.location}</Card.Text>
           <Card.Text>{property.bedrooms} Bedrooms</Card.Text>
           <Card.Text>
             Added on: {property.added.day}/{property.added.month}/
             {property.added.year}
           </Card.Text> */}
+          <br />
+          <br />
+          
           <Card.Text>£{property.price.toLocaleString()}</Card.Text>
           <div className="d-flex justify-content-between">
           <Button 

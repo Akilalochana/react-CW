@@ -6,9 +6,14 @@ import MyNavbar from '../component/MyNavbar';
 import PropertyImageGallery from '../component/PropertyImageGallery'; // Import the corrected image gallery component
 import './PropertyDetails.css';
 
+import { IoArrowBackCircleOutline } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
+
+
 const PropertyDetails = () => {
   const { id } = useParams();
   const [property, setProperty] = useState(null);
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetch("/properties.json")
@@ -29,18 +34,19 @@ const PropertyDetails = () => {
 
   return (
     <>
-      <div>
-        
-      </div>
 
       <div>
         <MyNavbar />
+        <IoArrowBackCircleOutline onClick={()=>navigate(-1)} className='back' />
+        
         <div className="property-details">
           <h2>{property.type}</h2>
           <PropertyImageGallery images={images} />
           <p className="property-price">Price: £{property.price.toLocaleString()}</p>
           <p>Location: {property.location}</p>
           <p>Bedrooms: {property.bedrooms}</p>
+          <p> {property.tenure}</p>
+          <p>Added date: {property.added.day}/{property.added.month}/{property.added.year}</p>
 
           {/* Tabs Section */}
           <Tabs>
