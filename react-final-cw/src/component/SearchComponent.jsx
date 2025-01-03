@@ -145,39 +145,40 @@ function SearchComponent() {
     <DndProvider backend={HTML5Backend}>
     <div>
       <div className="allSearch">
-      <Form.Label>Select type</Form.Label>
-        <Form.Select
-          aria-label="Select property type"
-          style={{ width: "420px", height: "40px", marginBottom:"20px" }}
-          onChange={(e) => setSelectedType(e.target.value)}
-          value={selectedType}
-        >
-          <option value="Any">Any</option>
-          <option value="House">House</option>
-          <option value="Flat">Flat</option>
-        </Form.Select>
+        <div className='TypeandPrice'>
+          <Form.Label>Select type</Form.Label>
+          <Form.Select
+            aria-label="Select property type"
+            style={{ width: "420px", height: "40px", marginBottom:"20px" }}
+            onChange={(e) => setSelectedType(e.target.value)}
+            value={selectedType}
+          >
+            <option value="Any">Any</option>
+            <option value="House">House</option>
+            <option value="Flat">Flat</option>
+          </Form.Select>
 
 
-        <Form.Label>Enter price range</Form.Label>
-        <Form.Group className="maxMinPrice">
-          <Form.Control
-            type="number"
-            placeholder="min price"
-            onChange={(e) => setSelectedMinPrice(e.target.value)}
-            value={selectedMinPrice}
-            style={{ width: "200px" }}
-          />
-          <Form.Control
-            type="number"
-            placeholder="max price"
-            onChange={(e) => setSelectedMaxPrice(e.target.value)}
-            value={selectedMaxPrice}
-            style={{ width: "200px" }}
-          />
-        </Form.Group>
+          <Form.Label>Enter price range</Form.Label>
+          <Form.Group className="maxMinPrice">
+            <Form.Control
+              type="number"
+              placeholder="min price"
+              onChange={(e) => setSelectedMinPrice(e.target.value)}
+              value={selectedMinPrice}
+              style={{ width: "200px" }}
+            />
+            <Form.Control
+              type="number"
+              placeholder="max price"
+              onChange={(e) => setSelectedMaxPrice(e.target.value)}
+              value={selectedMaxPrice}
+              style={{ width: "200px" }}
+            />
+          </Form.Group>
+        </div>
 
-
-
+        <div className='bedroomandDate'>
         <Form.Label>Enter bedroom range</Form.Label>
         <Form.Group className="maxMinBedrooms" >
           <Form.Control
@@ -198,6 +199,7 @@ function SearchComponent() {
 
         <Form.Group className="date">
           <Form.Label>Date added</Form.Label>
+          <div className='afterandBefore'>
             <div className="dateLabel">
               <Form.Label>after</Form.Label>
               <Form.Control
@@ -218,8 +220,12 @@ function SearchComponent() {
                 style={{ width: "200px" }}
               />
             </div>
+            </div>
+            
+            
 
         </Form.Group>
+        </div>
 
         <Form.Group className="postcode">
           <Form.Label>Postcode Area</Form.Label>
@@ -232,7 +238,7 @@ function SearchComponent() {
           />
         </Form.Group>
 
-        <Button onClick={handleSearch} variant="outline-success" style={{width:"150px", marginLeft:"400px"}}>
+        <Button onClick={handleSearch} variant="outline-success" style={{width:"150px", marginLeft:"600px", marginTop:"-100px"}}>
           Search
         </Button>
       </div>
