@@ -31,6 +31,8 @@
   width: 400px;
 }
 
+
+
 @media (max-width:400px){
   .image-gallery-icon {
     font-size: 24px !important;

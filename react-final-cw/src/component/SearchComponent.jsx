@@ -143,123 +143,130 @@ function SearchComponent() {
   return (
 
     <DndProvider backend={HTML5Backend}>
-    <div>
-      <div className="allSearch">
-        <div className='TypeandPrice'>
-          <Form.Label>Select type</Form.Label>
-          <Form.Select
-            aria-label="Select property type"
-            style={{ width: "420px", height: "40px", marginBottom:"20px" }}
-            onChange={(e) => setSelectedType(e.target.value)}
-            value={selectedType}
-          >
-            <option value="Any">Any</option>
-            <option value="House">House</option>
-            <option value="Flat">Flat</option>
-          </Form.Select>
+      <div>
+        <div className="allSearch">
+          <div className='TypeandPrice'>
+            <div className='type'>
+              <Form.Label className='selectType'>Select type</Form.Label>
+              <Form.Select
+                aria-label="Select property type"
+                style={{ width: "290px", height: "40px", marginBottom:"20px" }}
+                onChange={(e) => setSelectedType(e.target.value)}
+                value={selectedType}
+              >
+                <option value="Any">Any</option>
+                <option value="House">House</option>
+                <option value="Flat">Flat</option>
+              </Form.Select>
+            </div>
 
+            <div className='enterPrice'>
+              <Form.Label >Enter price range</Form.Label>
+              <Form.Group className="maxMinPrice">
+                <Form.Control
+                  type="number"
+                  placeholder="min price"
+                  onChange={(e) => setSelectedMinPrice(e.target.value)}
+                  value={selectedMinPrice}
+                  className='minmaxinput'
+                />
+                <Form.Control
+                  type="number"
+                  placeholder="max price"
+                  onChange={(e) => setSelectedMaxPrice(e.target.value)}
+                  value={selectedMaxPrice}
+                  className='minmaxinput'
+                />
+              </Form.Group>
+            </div>
+          </div>
 
-          <Form.Label>Enter price range</Form.Label>
-          <Form.Group className="maxMinPrice">
+          <div className='bedroomandDate'>
+            <div className='enterBedroom'>
+              <Form.Label>Enter bedroom range</Form.Label>
+              <Form.Group className="maxMinBedrooms" >
+                <Form.Control
+                  type="number"
+                  placeholder="min bedroom"
+                  onChange={(e) => setSelectedMinBedroom(e.target.value)}
+                  value={selectedMinBedroom}
+                  className='minmaxinput'
+                />
+                <Form.Control
+                  type="number"
+                  placeholder="max bedroom"
+                  onChange={(e) => setSelectedMaxBedroom(e.target.value)}
+                  value={selectedMaxBedroom}
+                  className='minmaxinput'
+                />
+              </Form.Group>
+            </div>
+            
+            <div className='enterDate'>
+              <Form.Group className="date">
+                <Form.Label>Date added</Form.Label>
+                <div className='afterandBefore'>
+                  <div className="dateLabel">
+                    <Form.Label>after</Form.Label>
+                    <Form.Control
+                      type="date"
+                      placeholder="after"
+                      onChange={(e) => setSelectedAfterDate(e.target.value)}
+                      value={selectedAfterDate}
+                      className='minmaxinput'
+                    />
+                  </div>
+                  <div className="dateLabel">
+                  <Form.Label>before</Form.Label>
+                    <Form.Control
+                      type="date"
+                      placeholder="before"
+                      onChange={(e) => setSelectedBeforeDate(e.target.value)}
+                      value={selectedBeforeDate}
+                      className='minmaxinput'
+                    />
+                  </div>
+                  </div>
+              </Form.Group>
+            </div>
+          </div>
+
+          <Form.Group className="postcode">
+            <Form.Label>Postcode Area</Form.Label>
             <Form.Control
-              type="number"
-              placeholder="min price"
-              onChange={(e) => setSelectedMinPrice(e.target.value)}
-              value={selectedMinPrice}
-              style={{ width: "200px" }}
-            />
-            <Form.Control
-              type="number"
-              placeholder="max price"
-              onChange={(e) => setSelectedMaxPrice(e.target.value)}
-              value={selectedMaxPrice}
-              style={{ width: "200px" }}
+              type="text"
+              placeholder="e.g. BR1, NW1"
+              onChange={(e) => setSelectedPostcode(e.target.value.toUpperCase())}
+              value={selectedPostcode}
+              className='postcodeInput'
             />
           </Form.Group>
+
+          <Button onClick={handleSearch} variant="success" size="lg" className='searchBtn'>
+            Search
+          </Button>
         </div>
 
-        <div className='bedroomandDate'>
-        <Form.Label>Enter bedroom range</Form.Label>
-        <Form.Group className="maxMinBedrooms" >
-          <Form.Control
-            type="number"
-            placeholder="min bedroom"
-            onChange={(e) => setSelectedMinBedroom(e.target.value)}
-            value={selectedMinBedroom}
-            style={{ width: "200px" }}
-          />
-          <Form.Control
-            type="number"
-            placeholder="max bedroom"
-            onChange={(e) => setSelectedMaxBedroom(e.target.value)}
-            value={selectedMaxBedroom}
-            style={{ width: "200px" }}
-          />
-        </Form.Group>
+        <div className='favAndCard'>
 
-        <Form.Group className="date">
-          <Form.Label>Date added</Form.Label>
-          <div className='afterandBefore'>
-            <div className="dateLabel">
-              <Form.Label>after</Form.Label>
-              <Form.Control
-                type="date"
-                placeholder="after"
-                onChange={(e) => setSelectedAfterDate(e.target.value)}
-                value={selectedAfterDate}
-                style={{ width: "200px" }}
-              />
+          <div className="imageCardDiv">
+              {filteredProperties.map((property) => (
+                <PropertyCard
+                  key={property.id}
+                  property={property}
+                  onToggleFavorite={handleToggleFavorite}
+                  isFavorite={favorites.some(fav => fav.id === property.id)}
+                />
+              ))}
             </div>
-            <div className="dateLabel">
-             <Form.Label>before</Form.Label>
-              <Form.Control
-                type="date"
-                placeholder="before"
-                onChange={(e) => setSelectedBeforeDate(e.target.value)}
-                value={selectedBeforeDate}
-                style={{ width: "200px" }}
-              />
-            </div>
-            </div>
-            
-            
 
-        </Form.Group>
-        </div>
-
-        <Form.Group className="postcode">
-          <Form.Label>Postcode Area</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="e.g. BR1, NW1"
-            onChange={(e) => setSelectedPostcode(e.target.value.toUpperCase())}
-            value={selectedPostcode}
-            style={{ width: "420px", marginBottom:"20px" }}
-          />
-        </Form.Group>
-
-        <Button onClick={handleSearch} variant="success" style={{width:"150px", marginLeft:"600px", marginTop:"-100px"}}>
-          Search
-        </Button>
-      </div>
-
-
-      <FavoritesSection 
-          favorites={favorites}
-          onRemoveFavorite={handleToggleFavorite}
-          onClearFavorites={handleClearFavorites}
-        />
-
-<div className="imageCardDiv">
-          {filteredProperties.map((property) => (
-            <PropertyCard
-              key={property.id}
-              property={property}
-              onToggleFavorite={handleToggleFavorite}
-              isFavorite={favorites.some(fav => fav.id === property.id)}
+          <FavoritesSection 
+              favorites={favorites}
+              onRemoveFavorite={handleToggleFavorite}
+              onClearFavorites={handleClearFavorites}
             />
-          ))}
-        </div>
+
+          </div>
       </div>
     </DndProvider>
   );
