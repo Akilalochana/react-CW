@@ -22,7 +22,8 @@
           "gallaryImages/prop1pic3small.jpg",
           "gallaryImages/prop1pic4small.jpg",
           "gallaryImages/prop1pic5small.jpg",
-          "gallaryImages/prop1pic6small.jpg"
+          "gallaryImages/prop1pic6small.jpg",
+          "gallaryImages/prop1pic7small.jpg"
         ]
       },
       {
@@ -47,7 +48,8 @@
           "gallaryImages/prop2pic3small.jpg",
           "gallaryImages/prop2pic4small.jpg",
           "gallaryImages/prop2pic5small.jpg",
-          "gallaryImages/prop2pic6small.jpg"
+          "gallaryImages/prop2pic6small.jpg",
+          "gallaryImages/prop2pic7small.jpg"
         ]
       },
       {
@@ -72,7 +74,8 @@
           "gallaryImages/prop3pic3small.jpg",
           "gallaryImages/prop3pic4small.jpg",
           "gallaryImages/prop3pic5small.jpg",
-          "gallaryImages/prop3pic6small.jpg"
+          "gallaryImages/prop3pic6small.jpg",
+          "gallaryImages/prop3pic7small.jpg"
         ]
       },
       {
@@ -97,7 +100,8 @@
           "gallaryImages/prop4pic3small.jpg",
           "gallaryImages/prop4pic4small.jpg",
           "gallaryImages/prop4pic5small.jpg",
-          "gallaryImages/prop4pic6small.jpg"
+          "gallaryImages/prop4pic6small.jpg",
+          "gallaryImages/prop4pic7small.jpg"
         ]
         
       },
@@ -123,7 +127,8 @@
           "gallaryImages/prop5pic3small.jpg",
           "gallaryImages/prop5pic4small.jpg",
           "gallaryImages/prop5pic5small.jpg",
-          "gallaryImages/prop5pic6small.jpg"
+          "gallaryImages/prop5pic6small.jpg",
+          "gallaryImages/prop5pic7small.jpg"
         ]
       },
       {
@@ -148,7 +153,8 @@
           "gallaryImages/prop6pic3small.jpg",
           "gallaryImages/prop6pic4small.jpg",
           "gallaryImages/prop6pic5small.jpg",
-          "gallaryImages/prop6pic6small.jpg"
+          "gallaryImages/prop6pic6small.jpg",
+          "gallaryImages/prop6pic7small.jpg"
         ]
       },
       {
@@ -173,7 +179,35 @@
           "gallaryImages/prop7pic3small.jpg",
           "gallaryImages/prop7pic4small.jpg",
           "gallaryImages/prop7pic5small.jpg",
-          "gallaryImages/prop7pic6small.jpg"
+          "gallaryImages/prop7pic6small.jpg",
+          "gallaryImages/prop7pic7small.jpg"
+        ]
+      },
+
+      {
+        "id": "prop8",
+        "type": "Flat",
+        "bedrooms": 6,
+        "price": 2000000,
+        "tenure": "Freehold",
+        "description": "An exquisite six-bedroom mansion with a private swimming pool, gym, and landscaped garden, perfect for luxury living.",
+        "location": "Chelsea, London SW3",
+        "picture": "images/prop8pic1small.jpg",
+        "url": "properties/prop7.html",
+        "added": {
+          "month": "March",
+          "day": 5,
+          "year": 2023
+        },
+        "floorPlan": "floorPlan/floorImg7.jpg",
+        "imageGallery": [
+          "images/prop8pic1small.jpg",
+          "gallaryImages/prop8pic2small.jpg",
+          "gallaryImages/prop8pic3small.jpg",
+          "gallaryImages/prop8pic4small.jpg",
+          "gallaryImages/prop8pic5small.jpg",
+          "gallaryImages/prop8pic6small.jpg",
+          "gallaryImages/prop8pic7small.jpg"
         ]
       }
     ]
