@@ -141,7 +141,7 @@ function SearchComponent() {
   };
 
   return (
-
+  
     <DndProvider backend={HTML5Backend}>
       <div>
         <div className="allSearch">
@@ -269,6 +269,7 @@ function SearchComponent() {
           </div>
       </div>
     </DndProvider>
+    
   );
 }
 

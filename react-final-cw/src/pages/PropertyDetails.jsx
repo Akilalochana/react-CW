@@ -8,6 +8,7 @@ import './PropertyDetails.css';
 
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
+import Footer from '../component/Footer';
 
 
 const PropertyDetails = () => {
@@ -92,6 +93,8 @@ const PropertyDetails = () => {
           </Tabs>
         </div>
       </div>
+
+      <Footer/>
     </>
   );
 };

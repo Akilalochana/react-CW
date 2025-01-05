@@ -21,7 +21,7 @@ const FavoritesSection = ({ favorites, onRemoveFavorite, onClearFavorites }) => 
         minHeight: '200px',
         border: '2px dashed #dee2e6',
         borderRadius: '8px',
-        marginTop: '20px'
+        marginTop: '20px',
       }}
     >
       <div className="d-flex justify-content-between align-items-center mb-3">

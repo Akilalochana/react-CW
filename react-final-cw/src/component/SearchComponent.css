@@ -110,6 +110,7 @@
     height: 100vh; /* Full viewport height */
 
   }
+ 
 
   @media(max-width:821px){
     .allSearch {
