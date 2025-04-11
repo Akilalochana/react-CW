@@ -1,0 +1,43 @@
+.property-gallery {
+  /* Control main image size */
+  .image-gallery-slide img {
+    max-height: 400px;  /* Adjust this value as needed */
+    width: auto;
+    object-fit: contain;
+    margin-top: 30px;
+    
+  }
+
+  /* Control thumbnail size */
+  .image-gallery-thumbnail img {
+    max-width: 100px;
+    height: 80px;
+    object-fit: cover;
+  }
+
+  /* Make thumbnails row smaller */
+  .image-gallery-thumbnails-container {
+    margin-top: 5px;
+  }
+
+  background-color: rgb(246, 246, 246);
+  border-radius: 20px;
+  
+}
+
+/*control the navigation arrows size */
+.image-gallery-icon {
+  font-size: 24px !important;
+  width: 400px;
+}
+
+
+
+@media (max-width:400px){
+  .image-gallery-icon {
+    font-size: 24px !important;
+    width: 200px;
+  }
+
+  
+}
